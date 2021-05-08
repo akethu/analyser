@@ -15,7 +15,7 @@ This code allows a user to evaluate a document faster. By  noting down certain k
 
 1. Download the code.
 2. Open it in a suitable IDE.
-3. Go to line 77, and change the path of the file.
+3. Go to line 77 in `Analyser.java`, and change the path of the file.
 4. If a line is headed with the comment `Can be customised`, then you can change it (without affecting the functionality of the program) based on the instructions (given as comments).
 
 ## License
