@@ -19,12 +19,13 @@ public class Analyser {
 	static String theWord = "";
 	static String stringed = "";
 	static int num = 0;
+	static boolean empty = true;
 	
 	public void stringMaker() {
 		for(int i = 0; i < tracker.size(); i++) {
 			System.out.println("Contains " + tracker.get(i) + ":");
 			
-			/* Can be customised */
+			/* Can be customized */
 			// Change the 2 below to the number of sentences you want to read, before the sentence containing the current keyword
 			// Eg: If you change the 2 (you need to change both the 2's below) to 3, then you will print 3 sentences (if exists) before the sentence containing the keyword
 			int prev = (index.get(i) >= 2) ? 2 : index.get(i);
@@ -34,7 +35,7 @@ public class Analyser {
 				prev--;
 			}
 			
-			/* Can be customised */
+			/* Can be customized */
 			// Change the 2 below to the number of sentences you want to read, after the sentence containing the current keyword
 			// Eg: If you change the 2 (you need to change both the 2's below) to 3, then you will print 3 sentences (if exists) after the sentence containing the keyword
 			int suc = ((acc.size() - index.get(i)) >= 2) ? 2 : (acc.size() - index.get(i));
@@ -61,6 +62,7 @@ public class Analyser {
 				if(has) {
 					index.add(num);
 					has = false;
+					empty = false;
 					tracker.add(theWord);
 				}
 				stringed = "";
@@ -70,19 +72,23 @@ public class Analyser {
 	}
 	
 	public static void main(String[] args) throws FileNotFoundException {
-		/* To be customised */
+		/* To be customized */
 		// Change the path of the file below to the path you have your .txt file on
 		File file = new File("/Users/adithyakethu/Desktop/viz.txt");
+		
 		Scanner scnr = new Scanner(file);
 		Analyser obj = new Analyser();
 		
 		while(scnr.hasNextLine()) {
 			obj.tokenizer(scnr.nextLine());
 		}
-		obj.stringMaker();
-		if(num == 0) {
+		
+		if(empty) {
 			System.out.println("Oops! Nothing relevant found.");
 		}
+		else {
+			System.out.println("Number of keywords matched: " + index.size() + "\n");
+			obj.stringMaker();
+		}
 	}
-
 }
