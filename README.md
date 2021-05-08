@@ -5,6 +5,7 @@ A customisable keyword locater.
 ## Objective
 
 This code allows a user to evaluate a document faster. By  noting down certain keywords, the program allows us to find sentences around, and including, the keywords mentioned by the user. The code gives an output with the following format:<br>
+`Number of keywords matched: <number>`<br><br>
 `Contains <keyword name>:`<br>
 `<Sentences before the keyword>`<br>
 `<Sentence containing the keyword>`<br>
